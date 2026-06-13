@@ -1,0 +1,22 @@
+{
+  "name": "backend-guvi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rkthak/nodejs-Learn.git"
+  },
+  "author": "Raj Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rkthak/nodejs-Learn/issues"
+  },
+  "homepage": "https://github.com/Rkthak/nodejs-Learn#readme"
+}
