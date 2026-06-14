@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Rkthak/nodejs-Learn/issues"
   },
-  "homepage": "https://github.com/Rkthak/nodejs-Learn#readme"
+  "homepage": "https://github.com/Rkthak/nodejs-Learn#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
 }

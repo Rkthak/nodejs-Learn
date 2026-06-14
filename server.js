@@ -1,51 +1,20 @@
 // import http module
-const http = require("http");
+const express = require("express");
 
 // create a http server
-const server = http.createServer((request, response) => {
-  const parsedURL = new URL(request.url, `http://${request.headers.host}`);
-  const pathname = parsedURL.pathname;
+const app = express();
 
-  if (pathname === "/") {
-    switch (request.method) {
-      case "GET":
-        response.writeHead(200, { "content-type": "application/json" });
-        response.write(JSON.stringify({ message: "hello GET!" }));
-        response.end();
-        break;
-      case "POST":
-        response.writeHead(200, { "content-type": "application/json" });
-        response.write(JSON.stringify({ message: "hello POST!" }));
-        response.end();
-        break;
-      case "PUT":
-        response.writeHead(200, { "content-type": "application/json" });
-        response.write(JSON.stringify({ message: "hello PUT!" }));
-        response.end();
-        break;
-      case "DELETE":
-        response.writeHead(200, { "content-type": "application/json" });
-        response.write(JSON.stringify({ message: "hello DELETE!" }));
-        response.end();
-        break;
-      default:
-        response.writeHead(404, { "content-type": "application/json" });
-        response.write(JSON.stringify({ message: "unknown http method" }));
-        response.end();
-        break;
-    }
-  } else if (pathname === "/users") {
-    response.writeHead(200, { "content-type": "application/json" });
-    response.write(JSON.stringify({ message: "hello users!" }));
-    response.end();
-  } else {
-    response.writeHead(404, { "content-type": "application/json" });
-    response.write(JSON.stringify({ message: "unknown route" }));
-    response.end();
-  }
+// create server routes
+app.get("/", (request, response) => {
+  response.status(200).json({ message: "hello world..!" });
+});
+
+// error handle with routes
+app.use((request, response, next) => {
+  response.status(400).json({ message: "page not found" });
 });
 
 // run the http server
-server.listen(3000, "localhost", () => {
+app.listen(3000, "localhost", () => {
   console.log("server is running @ http://localhost:3000");
 });
