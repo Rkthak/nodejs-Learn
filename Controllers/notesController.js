@@ -1,8 +1,10 @@
 const Note = require("../models/note");
 
 const noteController = {
-  getAllNotes: (request, response) => {
-    response.status(200).json({ message: "note get..!" });
+  getAllNotes: async (request, response) => {
+    const notes = await Note.find({}, { __v: 0 });
+
+    response.status(200).json({ notes });
   },
   postNote: async (request, response) => {
     try {
