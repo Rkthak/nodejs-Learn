@@ -1,22 +1,22 @@
-require("dotenv").config();
+const { mongoURI, PORT } = require("./utils/config");
 const app = require("./app");
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.MONGODB_URI)
+  .connect(mongoURI)
   .then(() => {
     console.log("db connected successfuly");
-    app.listen(3000, "localhost", (error) => {
+
+    // run the http server
+    app.listen(PORT, "localhost", (error) => {
       if (error) {
         console.error("Server starting error:", error.message);
         return;
       }
 
-      console.log("server is running @ http://localhost:3000");
+      console.log(`server is listening @ ${PORT}`);
     });
   })
   .catch((error) => {
     console.log("db error", error.errmsg);
   });
-
-// run the http server
