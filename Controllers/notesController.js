@@ -3,6 +3,8 @@ const noteController = {
     response.status(200).json({ message: "note get..!" });
   },
   postNote: (request, response) => {
+    console.log(request.body);
+
     response.status(200).json({ message: "note post..!" });
   },
   updateNote: (request, response) => {

@@ -6,6 +6,7 @@ const logger = require("./Middlewares/logger");
 
 // create a http server
 const app = express();
+app.use(express.json());
 
 app.use(logger);
 
